@@ -1,13 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import "swiper/css";
+@import "swiper/css/pagination";
+@import "swiper/css/scrollbar";
+@import "swiper/css/navigation";
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    font-family: "Nunito", sans-serif;
+}
+.font-caveat {
+    font-family: "Caveat", cursive;
+}
+.font-dancing {
+    font-family: "Dancing Script", cursive;
+}
+.progress {
+    animation: progress linear 2s;
+}
+.slide-out {
+    animation: slide-out ease-in 0.25s;
+}
+.hover-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateX(-100%);
+    transition: transform 0.75s ease-in-out;
+}
+.hover-overlay:hover::before {
+    transform: translateX(100%);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.slick-next,
+.slick-prev {
+    width: 40px;
+    height: 40px;
+    z-index: 10 !important;
+}
+.slick-next {
+    right: 20px;
+}
+.slick-prev {
+    left: 20px;
+}
+.slick-prev::before,
+.slick-next::before {
+    font-size: 40px;
+}
+
+@keyframes progress {
+    from {
+        width: 0%;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes slide-out {
+    to {
+        transform: translateX(0);
+    }
+    from {
+        transform: translateX(200%);
+    }
 }
